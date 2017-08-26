@@ -18,7 +18,7 @@ export default function OrderPageLayout(props) {
       </nav>
 
       <div className="container">
-        <div class="row">
+        <div className="row">
           <div className="col m8 s12">
             {props.children[0]}
           </div>

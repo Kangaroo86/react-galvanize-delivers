@@ -5,25 +5,33 @@ export default function MenuItemComponent({ item }) {
   const imagePath = item.imagePath;
   const name = item.name || 'N/A';
   const price =
-    item.price && typeof item.price == 'number'
+    item.price && typeof item.price === 'number'
       ? `$${item.price.toFixed(2)}`
       : 'N/A';
 
   return (
-    <div className="card MenuItemComponent">
-      <div className="card-image">
-        <img src={imagePath} />
-      </div>
-      <div className="card-content">
-        <h5 className="card-title">
-          {name}
-        </h5>
-        <p>
-          {price}
-        </p>
-      </div>
-      <div className="card-action">
-        <a href="#">ADD TO ORDER</a>
+    <div className="container">
+      <div className="row">
+        <div className="col m8 s12">
+          <div className="col s12 m6">
+            <div className="card MenuItemComponent">
+              <div className="card-image">
+                <img src={imagePath} />
+              </div>
+              <div className="card-content">
+                <h5 className="card-title">
+                  {name}
+                </h5>
+                <p>
+                  {price}
+                </p>
+              </div>
+              <div className="card-action">
+                <a href="#">ADD TO ORDER</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
