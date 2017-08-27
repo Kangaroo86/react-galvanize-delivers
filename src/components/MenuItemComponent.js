@@ -9,6 +9,16 @@ export default function MenuItemComponent({ item }) {
       ? `$${item.price.toFixed(2)}`
       : 'N/A';
 
+  function click(e) {
+    e.preventDefault();
+    console.log('The link was clicked.');
+    return (
+      <a href="#" onClick={click}>
+        ADD TO ORDER
+      </a>
+    );
+  }
+
   return (
     <div className="card MenuItemComponent">
       <div className="card-image">
