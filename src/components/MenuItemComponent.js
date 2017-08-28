@@ -9,10 +9,10 @@ export default function MenuItemComponent({ item, onAddItem }) {
       ? `$${item.price.toFixed(2)}`
       : 'N/A';
 
-  function onAddItem(e) {
+  function clicking(e) {
     e.preventDefault();
-    console.log('The link was clicked');
-    //return onAddItem();
+    console.log('The link was clicked.');
+    return onAddItem(item.name);
   }
 
   return (
@@ -29,7 +29,7 @@ export default function MenuItemComponent({ item, onAddItem }) {
         </p>
       </div>
       <div className="card-action">
-        <a href="#" onClick={onAddItem}>
+        <a href="#" onClick={clicking}>
           ADD TO ORDER NOW
         </a>
       </div>

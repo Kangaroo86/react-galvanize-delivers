@@ -1,7 +1,7 @@
 import React from 'react';
 import MenuItemComponent from './MenuItemComponent.js';
 
-export default function MenuComponent({ menuItems }) {
+export default function MenuComponent({ menuItems, onAddItem }) {
   //function onAddItem(itemId) {}
   return (
     <div className="MenuComponent">

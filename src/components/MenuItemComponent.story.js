@@ -11,5 +11,5 @@ let data = {
 };
 
 storiesOf('MenuItemComponent', module).add('Complete item passed in', () =>
-  <MenuItemComponent item={data} onAddItem={''} />
+  <MenuItemComponent item={data} onAddItem={itemId => console.log(data.id)} />
 );
