@@ -2,27 +2,17 @@ import React from 'react';
 
 export default function OrderTableComponent({ itemsOrdered }) {
   const getSubtotal = function() {
-    let array = itemsOrdered.map(element => element.price);
-    let result = array.reduce((pre, curr) => pre + curr);
-    return '$' + result;
+    if (itemsOrdered.length !== 0) {
+      let array = itemsOrdered.map(element => element.price);
+      let result = array.reduce((pre, curr) => pre + curr);
+      return '$' + result;
+    } else {
+      return 0;
+    }
   };
+
   const tax = 0;
   const totalAmount = getSubtotal() + tax;
-
-  // const ordersName = itemsOrdered.map(element =>
-  //   <div>
-  //     <tr>
-  //       <td>
-  //         {element.name}
-  //       </td>
-  //     </tr>
-  //     <tr>
-  //       <td>
-  //         {element.price}
-  //       </td>
-  //     </tr>
-  //   </div>;
-  // );
 
   return (
     <div className="col s12 m4">

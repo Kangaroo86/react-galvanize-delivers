@@ -1,18 +1,18 @@
 import React from 'react';
 
-export default function MenuItemComponent({ item, onAddItem }) {
-  if (!item) return null;
-  const imagePath = item.imagePath;
-  const name = item.name || 'N/A';
+export default function MenuItemComponent({ menuItems, onAddItem }) {
+  if (!menuItems) return null;
+  const imagePath = menuItems.imagePath;
+  const name = menuItems.name || 'N/A';
   const price =
-    item.price && typeof item.price == 'number'
-      ? `$${item.price.toFixed(2)}`
+    menuItems.price && typeof menuItems.price === 'number'
+      ? `$${menuItems.price.toFixed(2)}`
       : 'N/A';
 
-  function clicking(e) {
-    e.preventDefault();
+  function handleClicking(event) {
+    event.preventDefault();
     console.log('The link was clicked.');
-    return onAddItem(item.name);
+    onAddItem(menuItems);
   }
 
   return (
@@ -29,7 +29,7 @@ export default function MenuItemComponent({ item, onAddItem }) {
         </p>
       </div>
       <div className="card-action">
-        <a href="#" onClick={clicking}>
+        <a href="." onClick={handleClicking}>
           ADD TO ORDER NOW
         </a>
       </div>

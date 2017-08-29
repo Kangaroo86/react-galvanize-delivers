@@ -2,9 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import MenuComponent from './MenuComponent.js';
-import OrderPage from '../src/components/MenuComponent.js';
+import OrderPage from '../src/components/OrderPage.js';
 // import OrderFormComponent from './OrderFormComponent.js';
 // import OrderTableComponent from './OrderTableComponent.js';
+
+//this is for onSubmit for form handling
+// export default function orderuder({onsubmit})
+// function handleSubmit(event) {
+//   event.preventDefault();
+//   const $form = event.target;
+//   const name = $form.name.value.trim();
+//   const phone = $form.phone.value.trim();
+//   const address = $form.address.value.trim();
+//   onSubmit({ name, phone, address });
+// }
+// <form onSubmit={handleSubmit} />;
 
 let menuItems = [
   {
@@ -33,17 +45,33 @@ let menuItems = [
   }
 ];
 
-let orderItems = [];
+let itemsOrdered = [];
 
-function onAddItem(itemId) {
-  console.log(itemId);
+function onAddItem(menuItems) {
+  console.log(menuItems);
+  if (menuItems) {
+    itemsOrdered.push(menuItems);
+  }
+  render();
 }
 
-ReactDOM.render(
-  <OrderPage
-    menuItems={menuItems}
-    orderItems={orderItems}
-    onAddItem={onAddItem}
-  />,
-  document.getElementById('root')
-);
+function render() {
+  ReactDOM.render(
+    <OrderPage
+      menuItems={menuItems}
+      onAddItem={onAddItem}
+      itemsOrdered={itemsOrdered}
+    />,
+    document.getElementById('root')
+  );
+}
+render();
+
+// ReactDOM.render(
+//   <OrderPage
+//     menuItems={menuItems}
+//     orderItems={orderItems}
+//     onAddItem={onAddItem}
+//   />,
+//   document.getElementById('root')
+// );

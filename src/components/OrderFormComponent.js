@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function OrderFormComponent({ input }) {
-  let fillOut = input.map(element => element);
+  let fillOut = input && input.map(element => element);
   return (
     <div className="row">
       <form className="col s12">
@@ -14,10 +14,9 @@ export default function OrderFormComponent({ input }) {
               id="name"
               name="name"
               className="validate"
-              required
             />
             <label for="name">
-              {fillOut[0].name}
+              {fillOut && fillOut.name}
             </label>
           </div>
         </div>
@@ -30,10 +29,9 @@ export default function OrderFormComponent({ input }) {
               id="phone"
               name="phone"
               className="validate"
-              required
             />
             <label for="phone">
-              {input[0].phone}
+              {fillOut && fillOut.phone}
             </label>
           </div>
         </div>
@@ -46,10 +44,9 @@ export default function OrderFormComponent({ input }) {
               id="address"
               name="address"
               className="validate"
-              required
             />
             <label for="address">
-              {input[0].address}
+              {fillOut && fillOut.address}
             </label>
           </div>
         </div>
