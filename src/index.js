@@ -45,22 +45,32 @@ let menuItems = [
   }
 ];
 
+//add items to menue order
 let itemsOrdered = [];
-
 function onAddItem(menuItems) {
-  console.log(menuItems);
+  //console.log(menuItems);
   if (menuItems) {
     itemsOrdered.push(menuItems);
   }
   render();
 }
 
+//customerInfo
+let customerInfo = null;
+function onSubmitOrderForm(infoObj) {
+  customerInfo = infoObj;
+  render();
+}
+
+//Render Order
 function render() {
   ReactDOM.render(
     <OrderPage
       menuItems={menuItems}
       onAddItem={onAddItem}
       itemsOrdered={itemsOrdered}
+      onSubmitOrderForm={onSubmitOrderForm}
+      customerInfo={customerInfo}
     />,
     document.getElementById('root')
   );
