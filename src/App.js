@@ -3,19 +3,19 @@ import OrderPage from './components/OrderPage';
 import getMenuItems from './api/getMenuItems.js';
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    menuItems: [],
+    orderItems: [],
+    customerInfo: null
+  };
 
-    this.state = {
-      menuItems: null,
-      orderItems: [],
-      customerInfo: null
-    };
-  }
+  componentDidMount() {
+    getMenuItems().then(function(data) {
+      console.log('here in did mount');
+      console.log(data);
+      this.setState({ menuItems: data });
+    });
 
-  componentDidMount(event) {
-    event.preventDefault();
-    console.log('here in did mount');
     // getMenuItems().then(data => {
     //   console.log(data);
     // });

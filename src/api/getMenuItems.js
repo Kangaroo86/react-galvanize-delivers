@@ -1,6 +1,12 @@
 export default function getMenuItems() {
   //return fetch('/data/menu-items.js').then(response => response.json());
-  return fetch('/data/menu-items.js'); //.then(data => data);
+  return fetch('/data/menu-items.json').then(response => response.json());
+  // .then(collection => {
+  //   let data = collection;
+  //   return data;
+  //   //console.log('result---------', data);
+  //   //return data;
+  // });
 }
 
 //export default getMenuItems;

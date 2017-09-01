@@ -8,6 +8,7 @@ import OrderSuccessMessageComponent from './OrderSuccessMessageComponent.js';
 export default function Orderpage(props) {
   return (
     <OrderPageLayout>
+      {console.log(props)}
       <MenuComponent menuItems={props.menuItems} onAddItem={props.onAddItem} />
       <OrderTableComponent itemsOrdered={props.itemsOrdered} />
       {!props.customerInfo
