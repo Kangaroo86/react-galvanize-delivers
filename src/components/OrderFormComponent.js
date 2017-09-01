@@ -7,11 +7,8 @@ export default class OrderFormComponent extends Component {
     super(props);
 
     this.state = {
-      // name: '',
       nameError: '',
-      // phone: '',
       phoneError: '',
-      // address: '',
       addressError: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -42,13 +39,13 @@ export default class OrderFormComponent extends Component {
     // console.log('this.state: ', this.state);
     // console.log('errors: ', errors);
 
-    if (name === '' || typeof name !== 'string') {
+    if (name === '' || typeof name == 'string') {
       isError = true;
       errors.nameError = 'username is either empty or not a string';
       // this.setState({ nameError: 'Invalid format: ###-###-####' });
     }
 
-    if (phone === '' || Number.isInteger(phone) === false) {
+    if (phone === '') {
       isError = true;
       errors.phoneError = 'phone is either empty or not a number';
     }
@@ -57,7 +54,6 @@ export default class OrderFormComponent extends Component {
       isError = true;
       errors.addressError = 'Please input address';
     }
-
     return isError ? errors : true;
   };
 
