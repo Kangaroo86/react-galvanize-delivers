@@ -11,7 +11,6 @@ export default function MenuItemComponent({ menuItems, onAddItem }) {
 
   function handleClicking(event) {
     event.preventDefault();
-    console.log('The link was clicked.');
     onAddItem(menuItems);
   }
 

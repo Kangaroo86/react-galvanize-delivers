@@ -7,31 +7,15 @@ export default class OrderFormComponent extends Component {
     super(props);
 
     this.state = {
-      // name: '',
       nameError: '',
-      // phone: '',
       phoneError: '',
-      // address: '',
       addressError: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  //handle change
-  // handleChange(event) {
-  //   //this.props.onChange({ [event.target.name]: event.target.value });
-  //   this.setState({
-  //     [event.target.name]: event.target.value //why target.name work?
-  //   });
-  //   // let text = event.target.value;
-  //   // this.setState({
-  //   //   name: text,
-  //   //   phone: text
-  //   // });
-  // }
-
+  //vadlidating user input
   validate = (name, phone, address) => {
-    //console.log('it is working');
     let isError = false;
     const errors = {
       nameError: '',
@@ -39,13 +23,9 @@ export default class OrderFormComponent extends Component {
       addressError: ''
     };
 
-    // console.log('this.state: ', this.state);
-    // console.log('errors: ', errors);
-
     if (name === '' || typeof name !== 'string') {
       isError = true;
       errors.nameError = 'username is either empty or not a string';
-      // this.setState({ nameError: 'Invalid format: ###-###-####' });
     }
 
     if (phone === '' || Number.isInteger(phone) === false) {
@@ -61,7 +41,7 @@ export default class OrderFormComponent extends Component {
     return isError ? errors : true;
   };
 
-  //handle submit button
+  //handle submit button. Validate function is defined above
   handleSubmit(event) {
     event.preventDefault();
     const $target = event.target;
@@ -75,11 +55,10 @@ export default class OrderFormComponent extends Component {
       return;
     }
     this.props.onSubmit({ name, phone, address });
-    //console.log(name); //debugging;
   }
 
+  //rendering
   render() {
-    //console.log(this.props);
     let fillOut = this.props.input && this.props.input.map(element => element);
     return (
       <div className="row">
