@@ -5,27 +5,22 @@ import getMenuItems from './api/getMenuItems.js';
 export default class App extends Component {
   state = {
     menuItems: [],
-    orderItems: [],
+    itemsOrdered: [],
     customerInfo: null
   };
 
+  //success
   componentDidMount() {
-    getMenuItems().then(function(data) {
-      console.log('here in did mount');
-      console.log(data);
+    getMenuItems().then(data => {
       this.setState({ menuItems: data });
     });
-
-    // getMenuItems().then(data => {
-    //   console.log(data);
-    // });
   }
 
   render() {
     return (
       <OrderPage
         menuItems={this.state.menuItems}
-        orderItems={this.state.orderItems}
+        itemsOrdered={this.state.itemsOrdered}
         customerInfo={this.state.customerInfo}
         onAddItem={this._addItem}
         onSubmitOrderForm={this._submitOrderForm}
