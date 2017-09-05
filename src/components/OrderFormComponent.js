@@ -28,7 +28,7 @@ export default class OrderFormComponent extends Component {
       errors.nameError = 'username is either empty or not a string';
     }
 
-    if (phone === '' || Number.isInteger(phone) === false) {
+    if (phone === '') {
       isError = true;
       errors.phoneError = 'phone is either empty or not a number';
     }
