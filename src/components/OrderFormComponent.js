@@ -12,23 +12,11 @@ export default class OrderFormComponent extends Component {
       addressError: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    //console.log('props--------', props);
   }
 
-  //handle change
-  // handleChange(event) {
-  //   //this.props.onChange({ [event.target.name]: event.target.value });
-  //   this.setState({
-  //     [event.target.name]: event.target.value //why target.name work?
-  //   });
-  //   // let text = event.target.value;
-  //   // this.setState({
-  //   //   name: text,
-  //   //   phone: text
-  //   // });
-  // }
-
   validate = (name, phone, address) => {
-    //console.log('it is working');
     let isError = false;
     const errors = {
       nameError: '',
@@ -36,13 +24,9 @@ export default class OrderFormComponent extends Component {
       addressError: ''
     };
 
-    // console.log('this.state: ', this.state);
-    // console.log('errors: ', errors);
-
-    if (name === '' || typeof name == 'string') {
+    if (name === '' || typeof name !== 'string') {
       isError = true;
       errors.nameError = 'username is either empty or not a string';
-      // this.setState({ nameError: 'Invalid format: ###-###-####' });
     }
 
     if (phone === '') {
@@ -70,13 +54,14 @@ export default class OrderFormComponent extends Component {
       this.setState(error);
       return;
     }
-    this.props.onSubmit({ name, phone, address });
-    //console.log(name); //debugging;
+    //this.props.onSubmit({ name, phone, address }); take out??
+    console.log(name); //debugging;
   }
 
   render() {
-    //console.log(this.props);
+    //console.log('orderFormCom props is: ', this.props);
     let fillOut = this.props.input && this.props.input.map(element => element);
+    console.log('fillout: ', fillOut);
     return (
       <div className="row">
         <form onSubmit={this.handleSubmit} className="col s12">

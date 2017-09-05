@@ -10,7 +10,7 @@ export default function MenuComponent({ menuItems, onAddItem }) {
           menuItems={item}
           onAddItem={onAddItem}
         />
-      )};
+      )}
     </div>
   );
 }

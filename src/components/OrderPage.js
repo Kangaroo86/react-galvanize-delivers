@@ -6,13 +6,14 @@ import OrderFormComponent from './OrderFormComponent.js';
 import OrderSuccessMessageComponent from './OrderSuccessMessageComponent.js';
 
 export default function Orderpage(props) {
+  //console.log('Orderpage props: ', props);
   return (
     <OrderPageLayout>
-      {console.log(props)}
+      {/* {console.log(props)} */}
       <MenuComponent menuItems={props.menuItems} onAddItem={props.onAddItem} />
       <OrderTableComponent itemsOrdered={props.itemsOrdered} />
       {!props.customerInfo
-        ? <OrderFormComponent onSubmit={props.onSubmitOrderForm} />
+        ? <OrderFormComponent onSubmit={props.submitOrderForm} />
         : <OrderSuccessMessageComponent customerInfo={props.customerInfo} />}
     </OrderPageLayout>
   );

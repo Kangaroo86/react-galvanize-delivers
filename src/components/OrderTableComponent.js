@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default function OrderTableComponent({ itemsOrdered }) {
+  console.log('OrderTableComponent called with itemsOrdered', itemsOrdered);
   const getSubtotal = function() {
     if (itemsOrdered.length !== 0) {
       let array = itemsOrdered.map(element => element.price);

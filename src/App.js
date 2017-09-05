@@ -9,12 +9,56 @@ export default class App extends Component {
     customerInfo: null
   };
 
-  //success
+  //FETCH JSON DATA
   componentDidMount() {
     getMenuItems().then(data => {
+      //getMenuItems() in fetch file
       this.setState({ menuItems: data });
     });
   }
+
+  //add items to menue order
+  // onAddItem(menuItems) {
+  //   console.log('this was clicked');
+  //   if (menuItems) {
+  //     let joined = this.state.itemsOrdered.concat(menuItems);
+  //     this.setState({ itemsOrdered: joined });
+  //   }
+  //   this.render();
+  // }
+
+  //ADD ITEMS TO ODER COMPONENTS
+  onAddItem = addedItem => {
+    // console.log(
+    //   'App.onAddItem, addedItem = ',
+    //   addedItem,
+    //   ' current state = ',
+    //   this.state
+    // );
+    this.setState(prevState => {
+      const menuItem = prevState.menuItems.find(
+        item => item.id === addedItem.id
+      );
+      if (!menuItem) {
+        //console.error('No found menu item matching item ID ', addedItem.id);
+        return {};
+      }
+      const newItemsOrdered = [...prevState.itemsOrdered, menuItem];
+      return { itemsOrdered: newItemsOrdered };
+    });
+  };
+
+  //SUBMIT ORDERFORM
+  submitOrderForm = ({ name, phone, address }) => {
+    console.log('customerInfor ---', this.state.customerInfor);
+    this.setState({ customerInfor: { name, phone, address } });
+    /* ... */
+  };
+
+  //SUCCESS MESSAGES
+  closerOrderSuccessMessage = () => {
+    //
+  };
 
   render() {
     return (
@@ -22,9 +66,9 @@ export default class App extends Component {
         menuItems={this.state.menuItems}
         itemsOrdered={this.state.itemsOrdered}
         customerInfo={this.state.customerInfo}
-        onAddItem={this._addItem}
-        onSubmitOrderForm={this._submitOrderForm}
-        onCloseOrderSuccessMessage={this._closeOrderSuccessMessage}
+        onAddItem={this.onAddItem}
+        onSubmitOrderForm={this.submitOrderForm}
+        onCloseOrderSuccessMessage={this.closeOrderSuccessMessage}
       />
     );
   }

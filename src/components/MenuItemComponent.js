@@ -10,8 +10,8 @@ export default function MenuItemComponent({ menuItems, onAddItem }) {
       : 'N/A';
 
   function handleClicking(event) {
+    console.log('menu item', menuItems);
     event.preventDefault();
-    console.log('The link was clicked.');
     onAddItem(menuItems);
   }
 
