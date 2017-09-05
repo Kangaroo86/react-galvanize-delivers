@@ -14,7 +14,9 @@ export default function Orderpage(props) {
       <OrderTableComponent itemsOrdered={props.itemsOrdered} />
       {!props.customerInfo
         ? <OrderFormComponent onSubmit={props.submitOrderForm} />
-        : <OrderSuccessMessageComponent customerInfo={props.customerInfo} />}
+        : <OrderSuccessMessageComponent
+            customerInfo={props.closerOrderSuccessMessage}
+          />}
     </OrderPageLayout>
   );
 }

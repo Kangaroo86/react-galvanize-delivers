@@ -50,15 +50,16 @@ export default class App extends Component {
 
   //SUBMIT ORDERFORM
   submitOrderForm = ({ name, phone, address }) => {
-    console.log('customerInfor ---', this.state.customerInfor);
+    //console.log('customerInfor ---', this.state.customerInfor);
     this.setState({ customerInfor: { name, phone, address } });
     /* ... */
   };
 
   //SUCCESS MESSAGES
-  closerOrderSuccessMessage = () => {
-    //
-  };
+  // closerOrderSuccessMessage = () => {
+  //   ruturn this.state.customerInfo;
+  //   //
+  // };
 
   render() {
     return (
@@ -68,7 +69,7 @@ export default class App extends Component {
         customerInfo={this.state.customerInfo}
         onAddItem={this.onAddItem}
         onSubmitOrderForm={this.submitOrderForm}
-        onCloseOrderSuccessMessage={this.closeOrderSuccessMessage}
+        onCloseOrderSuccessMessage={this.closerOrderSuccessMessage}
       />
     );
   }
