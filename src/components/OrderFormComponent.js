@@ -55,13 +55,13 @@ export default class OrderFormComponent extends Component {
       return;
     }
     //this.props.onSubmit({ name, phone, address }); take out??
-    console.log(name); //debugging;
+    //console.log(name); //debugging;
   }
 
   render() {
     //console.log('orderFormCom props is: ', this.props);
     let fillOut = this.props.input && this.props.input.map(element => element);
-    console.log('fillout: ', fillOut);
+    //console.log('fillout: ', fillOut);
     return (
       <div className="row">
         <form onSubmit={this.handleSubmit} className="col s12">
