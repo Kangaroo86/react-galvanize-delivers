@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import OrderPage from './components/OrderPage';
 import getMenuItems from './api/getMenuItems.js';
+import OrderFormComponent from './components/OrderFormComponent.js';
 
 export default class App extends Component {
   state = {
     menuItems: [],
     itemsOrdered: [],
-    customerInfo: null
+    customerInfo: ''
   };
 
   //FETCH JSON DATA
@@ -52,15 +53,18 @@ export default class App extends Component {
   submitOrderForm = ({ name, phone, address }) => {
     //console.log('customerInfor ---', this.state.customerInfor);
     console.log('clicked');
-    this.setState({ customerInfor: { name, phone, address } });
+    let infor = { name, phone, address };
+    this.setState({ customerInfor: infor });
+    console.log('customerInfo----', this.state.customerInfo);
     /* ... */
   };
 
   //SUCCESS MESSAGES
-  // closerOrderSuccessMessage = () => {
-  //   ruturn this.state.customerInfo;
-  //   //
-  // };
+  closerOrderSuccessMessage = () => {
+    console.log(this.state.customerInfo);
+    //ruturn this.state.customerInfo;
+    //
+  };
 
   render() {
     return (
@@ -69,7 +73,7 @@ export default class App extends Component {
         itemsOrdered={this.state.itemsOrdered}
         customerInfo={this.state.customerInfo}
         onAddItem={this.onAddItem}
-        onSubmitOrderForm={this.submitOrderForm}
+        submitOrderForm={this.submitOrderForm}
         onCloseOrderSuccessMessage={this.closerOrderSuccessMessage}
       />
     );

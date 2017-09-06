@@ -13,7 +13,7 @@ export default function Orderpage(props) {
       <MenuComponent menuItems={props.menuItems} onAddItem={props.onAddItem} />
       <OrderTableComponent itemsOrdered={props.itemsOrdered} />
       {!props.customerInfo
-        ? <OrderFormComponent onSubmit={props.submitOrderForm} />
+        ? <OrderFormComponent submitOrderForm={props.submitOrderForm} />
         : <OrderSuccessMessageComponent
             customerInfo={props.closerOrderSuccessMessage}
           />}

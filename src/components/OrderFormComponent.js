@@ -54,7 +54,8 @@ export default class OrderFormComponent extends Component {
       this.setState(error);
       return;
     }
-    this.props.onSubmit({ name, phone, address }); //take out??
+    this.props.submitOrderForm({ name, phone, address }); //take out??
+    //this.props.closerOrderSuccessMessage();
     //console.log('name: ', name); //debugging;
     //console.log('phone: ', phone); //debugging;
     //console.log('address: ', address); //debugging;
