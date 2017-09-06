@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import OrderPage from './components/OrderPage';
 import getMenuItems from './api/getMenuItems.js';
-import OrderFormComponent from './components/OrderFormComponent.js';
 
 export default class App extends Component {
   state = {
     menuItems: [],
     itemsOrdered: [],
-    customerInfo: ''
+    customerInfo: null
   };
 
   //FETCH JSON DATA
@@ -17,16 +16,6 @@ export default class App extends Component {
       this.setState({ menuItems: data });
     });
   }
-
-  //add items to menue order
-  // onAddItem(menuItems) {
-  //   console.log('this was clicked');
-  //   if (menuItems) {
-  //     let joined = this.state.itemsOrdered.concat(menuItems);
-  //     this.setState({ itemsOrdered: joined });
-  //   }
-  //   this.render();
-  // }
 
   //ADD ITEMS TO ODER COMPONENTS
   onAddItem = addedItem => {
@@ -49,21 +38,22 @@ export default class App extends Component {
     });
   };
 
-  //SUBMIT ORDERFORM
+  //CUSTOMER INFOR
   submitOrderForm = ({ name, phone, address }) => {
-    console.log('clicked');
     let infor = { name, phone, address };
-    this.setState({ customerInfor: infor });
-    console.log('customerInfo----', this.state.customerInfo);
-    /* ... */
+    this.setState({ customerInfo: infor });
+  };
+
+  closeOrderSuccessMessage = () => {
+    this.setState({ orderItems: [] });
   };
 
   //SUCCESS MESSAGES
-  closerOrderSuccessMessage = () => {
-    console.log(this.state.customerInfo);
-    //ruturn this.state.customerInfo;
-    //
-  };
+  // closerOrderSuccessMessage = () => {
+  //   console.log(this.state.customerInfo);
+  //   let error = {''};
+  //   this.setState({customerInfo: {null} )
+  // };
 
   render() {
     return (
@@ -73,7 +63,7 @@ export default class App extends Component {
         customerInfo={this.state.customerInfo}
         onAddItem={this.onAddItem}
         submitOrderForm={this.submitOrderForm}
-        onCloseOrderSuccessMessage={this.closerOrderSuccessMessage}
+        closeOrderSuccessMessage={this.closeOrderSuccessMessage}
       />
     );
   }

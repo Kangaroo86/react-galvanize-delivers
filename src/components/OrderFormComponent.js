@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import MenuItemComponent from './MenuItemComponent.js';
-import OrderSuccessMessageComponent from './OrderSuccessMessageComponent.js';
+//import MenuItemComponent from './MenuItemComponent.js';
+//import OrderSuccessMessageComponent from './OrderSuccessMessageComponent.js';
 
 export default class OrderFormComponent extends Component {
   constructor(props) {
@@ -12,8 +12,7 @@ export default class OrderFormComponent extends Component {
       addressError: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-
-    //console.log('props--------', props);
+    //console.log('orderForm props--------', props);
   }
 
   validate = (name, phone, address) => {
