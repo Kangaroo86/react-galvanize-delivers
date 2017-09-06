@@ -44,16 +44,10 @@ export default class App extends Component {
     this.setState({ customerInfo: infor });
   };
 
+  //CLOSE ORDER
   closeOrderSuccessMessage = () => {
-    this.setState({ orderItems: [] });
+    this.setState({ customerInfo: null });
   };
-
-  //SUCCESS MESSAGES
-  // closerOrderSuccessMessage = () => {
-  //   console.log(this.state.customerInfo);
-  //   let error = {''};
-  //   this.setState({customerInfo: {null} )
-  // };
 
   render() {
     return (
@@ -67,17 +61,6 @@ export default class App extends Component {
       />
     );
   }
-
-  _addItem = itemId => {
-    /* ... */
-  };
-
-  _submitOrderForm = infoObj => {
-    /* ... */
-  };
-  _closeOrderSuccessMessage = () => {
-    /* ... */
-  };
 }
 
 // import React from 'react';

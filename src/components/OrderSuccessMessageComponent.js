@@ -8,6 +8,7 @@ export default function OrderSuccessMessageComponent({
   }
 }) {
   function handleClick(event) {
+    console.log('flicked');
     onClose();
   }
 
