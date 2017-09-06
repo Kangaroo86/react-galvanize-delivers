@@ -51,7 +51,6 @@ export default class App extends Component {
 
   //SUBMIT ORDERFORM
   submitOrderForm = ({ name, phone, address }) => {
-    //console.log('customerInfor ---', this.state.customerInfor);
     console.log('clicked');
     let infor = { name, phone, address };
     this.setState({ customerInfor: infor });
