@@ -15,17 +15,33 @@ export default function OrderPageLayout(props) {
         </div>
       </nav>
 
-      <div className="container">
-        <div className="row">
-          <div className="col m8 s12">
+      <div className="OrderPageLayout">
+        <div className="leftColumn">
+          {/* <div class="row"> */}
+          <div className="col s12 m6">
             {props.children[0]}
           </div>
-          <div className="col s12 m4">
+          <div className="rightColumn">
+            {props.children[1]}
+            {props.children[2]}
+          </div>
+          {/* </div> */}
+        </div>
+      </div>
+
+      {/* <div>
+        <div className="OrderPageLayout">
+          <div className="leftColumn">
+            <h4>Menu</h4>
+            {props.children[0]}
+          </div>
+          <div className="rightColumn">
+            <h4>Order</h4>
             {props.children[1]}
             {props.children[2]}
           </div>
         </div>
-      </div>
+      </div> */}
 
       <footer className="page-footer blue">
         <div className="container">

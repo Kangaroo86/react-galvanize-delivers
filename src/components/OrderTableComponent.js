@@ -18,7 +18,7 @@ export default function OrderTableComponent({ itemsOrdered }) {
   return (
     <div className="col s12 m4">
       <h4>YOUR ORDER</h4>
-      <table id="order-table" className="striped col s12">
+      <table id="order-table" className="striped">
         <thead>
           <tr>
             <th>Item</th>
