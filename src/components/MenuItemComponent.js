@@ -18,7 +18,7 @@ export default function MenuItemComponent({ menuItems, onAddItem }) {
   return (
     <div className="card MenuItemComponent">
       <div className="card-image">
-        <img src={imagePath} />
+        <img alt="pict" src={imagePath} />
       </div>
       <div className="card-content">
         <h5 className="card-title">

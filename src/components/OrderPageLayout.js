@@ -6,9 +6,7 @@ export default function OrderPageLayout(props) {
     <div>
       <nav className="blue">
         <div className="nav-wrapper">
-          <a href="#" className="brand-logo">
-            Galvanize Delivers{' '}
-          </a>
+          <a className="brand-logo">Galvanize Delivers </a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li>
               <a href="order.html">Order Delivery</a>
@@ -18,7 +16,7 @@ export default function OrderPageLayout(props) {
       </nav>
 
       <div className="container">
-        <div class="row">
+        <div className="row">
           <div className="col m8 s12">
             {props.children[0]}
           </div>
