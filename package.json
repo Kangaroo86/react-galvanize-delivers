@@ -16,6 +16,10 @@
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "devDependencies": {
-    "@storybook/react": "^3.2.5"
+    "@storybook/react": "^3.2.5",
+    "jest": "^21.0.2"
+  },
+  "scripts": {
+    "test": "jest"
   }
 }

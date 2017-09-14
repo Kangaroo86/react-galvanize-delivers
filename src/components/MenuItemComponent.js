@@ -1,4 +1,5 @@
 import React from 'react';
+import { shallow, mount } from 'enzyme';
 
 export default function MenuItemComponent({ menuItems, onAddItem }) {
   if (!menuItems) return null;
