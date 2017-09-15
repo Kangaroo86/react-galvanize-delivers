@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import OrderPage from './components/OrderPage.js';
-import getMenuItems from './api/getMenuItems.js';
-//import rootReducer from './redux/reducers/rootReducer.js';
+//import getMenuItems from './api/getMenuItems.js';
 
-//import getMenuItemsProcess from './redux/thunks/getMenuItemsProcess.js';
+import rootReducer from './redux/reducers/rootReducer.js';
+import getMenuItemsProcess from './redux/thunks/getMenuItemsProcess.js';
 
 export default class App extends Component {
   constructor(props) {
@@ -21,18 +21,18 @@ export default class App extends Component {
   }
 
   //FETCH JSON DATA
-  componentDidMount() {
-    getMenuItems().then(menuItems => {
-      //getMenuItems() is in fetch file
-      this.setState({ menuItems: menuItems });
-      //this.setState({ menuItems: data });
-      //this.props.store.dispatch({ type: 'GET_MENU_ITEMS', menuItems });
-    });
-  }
-
   // componentDidMount() {
-  //   this.props.store.dispatch(getMenuItemsProcess());
+  //   getMenuItems().then(menuItems => {
+  //     //getMenuItems() is in fetch file
+  //     //this.setState({ menuItems: menuItems });
+  //     //this.setState({ menuItems: data });
+  //     this.props.store.dispatch({ type: 'GET_MENU_ITEMS', menuItems });
+  //   });
   // }
+
+  componentDidMount() {
+    this.props.store.dispatch(getMenuItemsProcess());
+  }
 
   //ADD ITEMS TO ODER COMPONENTS
   onAddItem = addedItem => {
