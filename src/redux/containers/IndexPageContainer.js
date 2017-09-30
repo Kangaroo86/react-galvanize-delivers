@@ -1,32 +1,43 @@
-// import OrderPage from '../../components/OrderPage';
-// import { connect } from 'react-redux'; //the curly bracket means you are importing multiple modules
-// import { lifecycle } from 'recompose';
-//
-// import getMenuItemsProcess from '../thunks/getMenuItemsProcess';
-//
-// function mapStateToProps(state, ownProps) {
-//   const { userById } = this.props.store.getState();
-//   const { authorId } = ownProps.match.params;
-//   const author = usersById[authorId] || null;
-//   return {
-//     author
-//   };
-// }
-//
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     onDidMount: ({ authorId }) =>
-//       dispatch(getMenuItemsProcess.create({ authorId }))
-//   };
-// }
-//
-// const connectToStore = connect(mapStateToProps, mapDispatchToProps);
-//
-// const withlifecycle = lifecycle({
-//   componentDidMount() {
-//     const { authorId } = this.props.match.params;
-//     this.props.onDidMount({ authorId });
-//   }
-// });
-//
-// export default connectToStore(withlifecycle(AuthorPage));
+import { connect } from 'react-redux'; //the curly bracket means you are importing multiple modules
+import { compose, lifecycle } from 'recompose';
+
+import OrderPage from '../../components/OrderPage';
+import getMenuItemsProcess from '../thunks/getMenuItemsProcess';
+
+function mapStateToProps(state, ownProps) {
+  return {
+    menuItems: state.menuItems,
+    itemsOrdered: state.itemsOrdered,
+    customerInfo: state.customerInfo
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    onMount: () => {
+      dispatch(getMenuItemsProcess());
+    },
+    onAddItem: itemId => {
+      dispatch({ type: 'ADD_ORDER_ITEM', itemId });
+    },
+    onClose: () => {
+      dispatch({ type: 'CLOSE_ORDER' });
+    },
+    onSubmitOrderForm: ({ name, phone, address }) => {
+      dispatch({
+        type: 'SUBMIT_ORDER',
+        customerInfo: { name, phone, address }
+      });
+    }
+  };
+}
+
+const connectToStore = connect(mapStateToProps, mapDispatchToProps);
+
+const withlifecycle = lifecycle({
+  componentDidMount() {
+    this.props.onMount();
+  }
+});
+
+export default compose(connectToStore, withlifecycle)(OrderPage);

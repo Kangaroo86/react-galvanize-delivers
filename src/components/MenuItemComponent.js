@@ -10,9 +10,8 @@ export default function MenuItemComponent({ menuItems, onAddItem }) {
       : 'N/A';
 
   function handleClicking(event) {
-    //console.log('menu item', menuItems);
     event.preventDefault();
-    onAddItem(menuItems);
+    onAddItem(menuItems.id);
   }
 
   return (

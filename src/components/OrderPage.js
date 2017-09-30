@@ -5,18 +5,23 @@ import OrderTableComponent from './OrderTableComponent.js';
 import OrderFormComponent from './OrderFormComponent.js';
 import OrderSuccessMessageComponent from './OrderSuccessMessageComponent.js';
 
-export default function Orderpage(props) {
-  //console.log('Orderpage props: ', props);
+export default function Orderpage({
+  menuItems,
+  customerInfo,
+  itemsOrdered,
+  onAddItem,
+  onClose,
+  onSubmitOrderForm
+}) {
   return (
     <OrderPageLayout>
-      {/* {console.log(props)} */}
-      <MenuComponent menuItems={props.menuItems} onAddItem={props.onAddItem} />
-      <OrderTableComponent itemsOrdered={props.itemsOrdered} />
-      {!props.customerInfo
-        ? <OrderFormComponent submitOrderForm={props.submitOrderForm} />
+      <MenuComponent menuItems={menuItems} onAddItem={onAddItem} />
+      <OrderTableComponent itemsOrdered={itemsOrdered} />
+      {!customerInfo
+        ? <OrderFormComponent submitOrderForm={onSubmitOrderForm} />
         : <OrderSuccessMessageComponent
-            customerInfo={props.customerInfo}
-            closeOrderSuccessMessage={props.closeOrderSuccessMessage}
+            customerInfo={customerInfo}
+            closeOrderSuccessMessage={onClose}
           />}
     </OrderPageLayout>
   );
